@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
-from AppCaro.models import Contacto, DatosPersonales, Habilidades, Idiomas, Experiencia
-from AppCaro.forms import experiencia_formulario, contacto_formulario, datos_personales_formulario, habilidades_formulario, idiomas_formulario
+from AppCaro.models import Avatar, Contacto, DatosPersonales, Habilidades, Idiomas, Experiencia
+from AppCaro.forms import experiencia_formulario, contacto_formulario, datos_personales_formulario, habilidades_formulario, idiomas_formulario, UserRegisterForm, UserCreationForm, UserEditForm
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -13,7 +13,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'AppCaro/inicio.html')
+
+      return render(request, "AppCaro/inicio.html")
+
 
 def experiencia(request):
     return render(request, 'AppCaro/experiencia.html')
@@ -24,6 +26,7 @@ def habilidades(request):
 def idiomas(request):
     return render(request, 'AppCaro/idiomas.html')
 
+@login_required
 def experiencia(request):
 
     if request.method == 'POST':
@@ -47,7 +50,7 @@ def experiencia(request):
         mi_formulario = experiencia_formulario()
 
     return render(request, 'AppCaro/experiencia.html', {'mi_formulario': mi_formulario })
-
+@login_required
 def contacto(request):
 
     if request.method == 'POST':
@@ -71,7 +74,7 @@ def contacto(request):
         mi_formulario = contacto_formulario()
 
     return render(request, 'AppCaro/contacto.html', {'mi_formulario': mi_formulario })
-
+@login_required
 def datos_personales(request):
 
     if request.method == 'POST':
@@ -95,7 +98,7 @@ def datos_personales(request):
         mi_formulario = datos_personales_formulario()
 
     return render(request, 'AppCaro/datos_personales.html', {'mi_formulario': mi_formulario })
-
+@login_required
 def habilidades(request):
 
     if request.method == 'POST':
@@ -119,7 +122,7 @@ def habilidades(request):
         mi_formulario = habilidades_formulario()
 
     return render(request, 'AppCaro/habilidades.html', {'mi_formulario': mi_formulario })
-
+@login_required
 def idiomas(request):
 
     if request.method == 'POST':
@@ -169,7 +172,7 @@ class ExperienciaDetalle(DetailView):
     model = Experiencia
     template_name = "AppCaro/experiencia_detalle.html"
 
-class ExperienciaCrear(CreateView):
+class ExperienciaCrear(LoginRequiredMixin, CreateView):
 
     model = Experiencia
     success_url = "/AppCaro/experiencia/list"
@@ -181,7 +184,7 @@ class ExperienciaUpdate(UpdateView):
     success_url = "/AppCaro/experiencia/list"
     fields = ['nombre_experiencia', 'nombre_empresa', 'duracion', 'trabajo_actual', 'descripcion']
 
-class ExperienciaDelete(DeleteView):
+class ExperienciaDelete(LoginRequiredMixin, DeleteView):
 
     model = Experiencia
     success_url= "/AppCaro/experiencia/list"
@@ -196,19 +199,19 @@ class ContactoDetalle(DetailView):
     model = Contacto
     template_name = "AppCaro/contacto_detalle.html"
 
-class ContactoCrear(CreateView):
+class ContactoCrear(LoginRequiredMixin, CreateView):
 
     model = Contacto
     success_url = "/AppCaro/contacto/list"
     fields = ['correo', 'telefono', 'instagram']
 
-class ContactoUpdate(UpdateView):
+class ContactoUpdate(LoginRequiredMixin, UpdateView):
 
     model = Contacto
     success_url = "/AppCaro/curso/list"
     fields = ['correo', 'telefono', 'instagram']
 
-class ContactoDelete(DeleteView):
+class ContactoDelete(LoginRequiredMixin, DeleteView):
 
     model = Contacto
     success_url= "/AppCaro/curso/list"
@@ -223,19 +226,19 @@ class DatosDetalle(DetailView):
     model = DatosPersonales
     template_name = "AppCaro/datos_detalle.html"
 
-class DatosCrear(CreateView):
+class DatosCrear(LoginRequiredMixin, CreateView):
 
     model = DatosPersonales
     success_url = "/AppCaro/datos/list"
     fields = ['nombre_y_apellido', 'edad', 'dni', 'domicilio']
 
-class DatosUpdate(UpdateView):
+class DatosUpdate(LoginRequiredMixin, UpdateView):
 
     model = DatosPersonales
     success_url = "/AppCaro/datos/list"
     fields = ['nombre_y_apellido', 'edad', 'dni', 'domicilio']
 
-class DatosDelete(DeleteView):
+class DatosDelete(LoginRequiredMixin, DeleteView):
 
     model = DatosPersonales
     success_url= "/AppCaro/datos/list"
@@ -251,19 +254,19 @@ class HabilidadesDetalle(DetailView):
     model = Habilidades
     template_name = "AppCaro/habilidades_detalle.html"
 
-class HabilidadesCrear(CreateView):
+class HabilidadesCrear(LoginRequiredMixin, CreateView):
 
     model = Habilidades
     success_url = "/AppCaro/habilidades/list"
     fields = ['habilidad', 'descripcion']
 
-class HabilidadesUpdate(UpdateView):
+class HabilidadesUpdate(LoginRequiredMixin, UpdateView):
 
     model = Habilidades
     success_url = "/AppCaro/habilidades/list"
     fields = ['habilidad', 'descripcion']
 
-class HabilidadesDelete(DeleteView):
+class HabilidadesDelete(LoginRequiredMixin, DeleteView):
 
     model = Habilidades
     success_url= "/AppCaro/habilidades/list"
@@ -278,19 +281,19 @@ class IdiomasDetalle(DetailView):
     model = Idiomas
     template_name = "AppCaro/idiomas_detalle.html"
 
-class IdiomasCrear(CreateView):
+class IdiomasCrear(LoginRequiredMixin, CreateView):
 
     model = Idiomas
     success_url = "/AppCaro/idiomas/list"
     fields = ['primer_idioma', 'segundo_idioma', 'tercer_idioma', 'lugar', 'fecha']
 
-class IdiomasUpdate(UpdateView):
+class IdiomasUpdate(LoginRequiredMixin, UpdateView):
 
     model = Idiomas
     success_url = "/AppCaro/idiomas/list"
     fields = ['primer_idioma', 'segundo_idioma', 'tercer_idioma', 'lugar', 'fecha']
 
-class IdiomasDelete(DeleteView):
+class IdiomasDelete(LoginRequiredMixin, DeleteView):
 
     model = Idiomas
     success_url= "/AppCaro/idiomas/list"
@@ -317,5 +320,54 @@ def login_request(request):
         else:
             return render(request,"AppCaro/inicio.html", {"mensaje": "Error, formulario erroneo"})
     
-    # form = AuthenticationForm()
-    #     return render(request, "AppCaro/login.html", {'form': form})
+   form = AuthenticationForm()
+   return render(request, "AppCaro/login.html", {'form': form})
+
+
+def register(request):
+      
+      if request.method == "POST":
+
+            form = UserCreationForm(request.POST)
+
+            if form.is_valid():
+                  username = form.cleaned_data['username']
+                 
+                  form.save()
+
+                  return render(request, "AppCaro/inicio.html", {"mensaje": "usuario creado"})
+
+      else: 
+            form = UserCreationForm()
+
+      return render(request, "AppCaro/registro.html", {"form": form})
+
+
+
+@login_required
+def editarPerfil(request):
+     
+      usuario = request.user
+      
+      if request.method == 'POST':
+            miFormulario = UserEditForm(request.POST)
+            if miFormulario.is_valid():
+                  informacion = miFormulario.cleaned_data
+                  
+
+                  usuario.email = informacion['email']
+                  usuario.password1 = informacion['password1']
+                  usuario.password2 = informacion['password2']
+                  usuario.save()
+            
+                  return render(request, "AppCaro/inicio.html") 
+
+      else:
+           
+            miFormulario = UserEditForm(initial={'email':usuario.email})
+      
+
+      return render(request, "AppCaro/editarPerfil.html", {"miFormulario": miFormulario, "usuario": usuario})
+
+
+

@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from django import *
 
-from .models import Contacto, DatosPersonales, Experiencia, Habilidades, Idiomas
+from .models import Avatar, Contacto, DatosPersonales, Experiencia, Habilidades, Idiomas
 
 admin.site.register(Contacto)
 
@@ -15,7 +15,7 @@ admin.site.register(Idiomas)
 
 admin.site.register(Experiencia)
 
-
+admin.site.register(Avatar)
 
 
 

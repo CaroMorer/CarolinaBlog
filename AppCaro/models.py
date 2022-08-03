@@ -47,6 +47,11 @@ class Habilidades(models.Model):
     def __str__(self):
         return f"Habilidad:{self.nombre_habilidad} - Descripcion {self.descripcion_habilidad}"
 
+class Avatar(models.Model):
+    #vinculo con el usuario
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #subcarpeta avatares media
+    imagen = models.ImageField(upload_to='avatares', null=True, blank = True)
 
 
 

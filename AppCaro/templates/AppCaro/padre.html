@@ -24,7 +24,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a> 
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
+                    Navegar
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -34,7 +34,16 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'experiencia' %}"> Experiencia</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'habilidades' %}"> Habilidades</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'idiomas' %}"> Idiomas</a></li>
+                        {% if not request.user.is_authenticated %}
+                        <a class="btn btn-primary" href="{% url 'login' %}">Inicar Sesión</a>
+                        {% endif %}
+        
+                        {% if request.user.is_authenticated %}
                         
+                        <h3 class="text-muted small mb-4 mb-lg-0">Hola, {{user.username}} </h3>
+                        <img src="{{url}}" style="height: 40px; width: 45px;" >
+                        
+                        {% endif %}                        
 
                     </ul>
                 </div>
@@ -44,7 +53,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
+                {% comment %} <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." /> {% endcomment %}
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">Carolina Moreno Politologa UBA</h1>
                 <!-- Icon Divider-->
@@ -239,36 +248,36 @@
                 <div class="row">
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <h4 class="text-uppercase mb-4">Ubicación</h4>
                         <p class="lead mb-0">
-                            2215 John Daniel Drive
+                            Buenos Aires, Argentina
                             <br />
-                            Clark, MO 65243
+                            CP1428CS
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
+                    {% comment %} <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Around the Web</h4>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                    </div>
+                    </div> {% endcomment %}
                     <!-- Footer About Text-->
-                    <div class="col-lg-4">
+                    {% comment %} <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">About Freelancer</h4>
                         <p class="lead mb-0">
                             Freelance is a free to use, MIT licensed Bootstrap theme created by
                             <a href="http://startbootstrap.com">Start Bootstrap</a>
                             .
-                        </p>
+                        </p> {% endcomment %}
                     </div>
                 </div>
             </div>
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2022</small></div>
+            <div class="container"><small>Derechos de Autoría &copy; Carolina Moreno 2022</small></div>
         </div>
         <!-- Portfolio Modals-->
         <!-- Portfolio Modal 1-->

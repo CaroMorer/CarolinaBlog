@@ -6,12 +6,11 @@
 
 <form action="" method="POST">
     {% csrf_token %}
-
+    
     {{ form.as_p }}
 
-    <button type="submit"> Iniciar Sesión </button>
-    <button><a href = "register"> Si no tiene usuario, puede registrarse. </a></button>
-
+    <button type="submit"> Registrarse </button>
+    <button><a href= "login"> Si ya tienes un usuario, utiliza el botón iniciar sesión</a><button>
 </form>
 
 {% endblock %}

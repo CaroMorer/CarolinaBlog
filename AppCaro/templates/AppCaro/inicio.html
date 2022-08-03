@@ -3,6 +3,13 @@
 {% load static %}
 
 {% block contenido_que_cambia %}
+
+<h1 style="background-color: pink;"> {{mensaje}}</h1>
+
+<br>
+{% if request.user.is_authenticated %}
+<button><a href="{% url 'logout' %}"> Cerrar sesión </a></button>
+{% endif %}    
     <div style = "background-color: coral;">
         <h1 class="page-section-heading text-center text-uppercase text-secondary mb-0"> Bienvenido a mi PortFolio </h1>
         <h2 class="page-section-heading text-center text-secondary mb-0"> Puedes indagar directamente mi experiencia: </h2>
@@ -25,11 +32,11 @@
         <p> Experiencias halladas con la palabra : {{variable}}</p>
 
         {% for exp in variables %}
-            <li> {{experiencia.nombre_experiencia}} &nbsp;
-             {{experiencia.nombre_empresa}} &nbsp;
-             {{experiencia.duracion}} &nbsp;
-             {{experiencia.trabajo_actual}} &nbsp;
-             {{experiencia.descripcion}} </li>
+            <li> {{experiencia.nombre_experiencia}} </li>
+            <li>  {{experiencia.nombre_empresa}}</li>
+            <li>  {{experiencia.duracion}}</li>
+            <li>  {{experiencia.trabajo_actual}}</li>
+            <li> {{experiencia.descripcion}} </li>
         {% endfor %}
         </ul>
 
