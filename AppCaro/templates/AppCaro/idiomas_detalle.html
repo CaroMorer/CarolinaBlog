@@ -1,0 +1,21 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+<h1> Detalle de Idiomas <h1>
+    <ul>
+        
+        Primer Idioma: {{idiomas.primer_idioma}}
+        Segundo Idioma: {{idiomas.segundo_idioma}}
+        Tercer Idioma: {{idiomas.tercer_idioma}}
+        Lugar: {{idiomas.lugar}}
+        Fecha: {{idiomas.fecha}}
+                
+            <p>
+                <a href= "{%url 'Lista' %}"> Regresar </a>
+
+            </p>
+     </ul>        
+{% endblock %}

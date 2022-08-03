@@ -9,19 +9,27 @@
         <h3 style ="color: black;"> Ingresa una palabra clave: </h3>
 
     <form action = '/AppCaro/buscar_experiencia/' method= 'GET'>
-        <input type = 'text' name = 'nombre_experiencia', 'nombre_empresa', 'duracion', 'trabajo_actual', 'descripcion' >
+        <input type = 'text' name = 'nombre_experiencia', id = 'nombre_experiencia'>
         <input type = 'submit' value = 'Buscar'> 
     </form>
     
     </div>    
  
         
-    {% if nombre_experiencia %}
 
-        <p> Experiencias halladas con la palabra : {{nombre_experiencia}}</p>
-        <ul>    
-        {% for exp in nombre_experiencia %}
-            <li> {{experiencia.nombre_empresa}} </li>
+
+       
+        <ul>
+    {% if variables %}   
+    
+        <p> Experiencias halladas con la palabra : {{variable}}</p>
+
+        {% for exp in variables %}
+            <li> {{experiencia.nombre_experiencia}} &nbsp;
+             {{experiencia.nombre_empresa}} &nbsp;
+             {{experiencia.duracion}} &nbsp;
+             {{experiencia.trabajo_actual}} &nbsp;
+             {{experiencia.descripcion}} </li>
         {% endfor %}
         </ul>
 

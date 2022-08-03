@@ -1,0 +1,32 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+<h1> Idiomas <h1>
+    <ul>
+
+        {% for idioma in object_list %}
+
+            <li>
+                <p>
+                    Primer Idioma: {{idiomas.primer_idioma}}
+                    Segundo Idioma: {{idiomas.segundo_idioma}}
+                    Tercer Idioma: {{idiomas.tercer_idioma}}
+                    Lugar: {{idiomas.lugar}}
+                    Fecha: {{idiomas.fecha}}
+                </p>
+                <p>
+                    <a href = "{% url 'Detalle' idiomas.id %}"> Ver</a>
+                    <a href = "{% url 'Editar' idiomas.id %}"> Editar</a>
+                    <a href = "{% url 'Borrar' idiomas.id %}"> Borrar</a> 
+
+                </p>
+            </li>
+        {% endfor %}
+
+        <a href = "{% url 'Nuevo' %}"> Crear nuevo Idioma</a>
+
+     </ul>        
+{% endblock %}

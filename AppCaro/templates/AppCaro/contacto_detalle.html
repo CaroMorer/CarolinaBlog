@@ -1,0 +1,19 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+<h1> Detalle de la Información de Contacto <h1>
+    <ul>
+        
+                <p>Correo: <i> {{contacto.correo}} </i></p>
+                <p>Teléfono: <i> {{contacto.telefono}}</i></p>
+                <p> Instagram: <i> {{contacto.instagram}}</i></p>
+                
+                <p>
+                    <a href= "{%url 'Lista' %}"> Regresar </a>
+
+                </p>
+     </ul>        
+{% endblock %}

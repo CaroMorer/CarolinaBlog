@@ -1,0 +1,31 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+<h1> Habilidades de Carolina Moreno <h1>
+    <ul>
+
+        {% for habilidad in object_list %}
+
+            <li>
+                <p>
+                    Habilidad: {{habilidad.nombre_habilidad}}
+                    Descripción: {{habilidad.descripcion_habilidad}}
+                </p>
+                <p>
+                    <a href = "{% url 'Detalle' habilidades.id %}"> Ver</a>
+                    <a href = "{% url 'Editar' habilidades.id %}"> Editar</a>
+                    <a href = "{% url 'Borrar' habilidades.id %}"> Borrar</a>
+
+                </p>
+
+        
+            </li>
+        {% endfor %}
+
+        <a href = "{% url 'Nuevo' %}"> Crear nueva Habilidad</a>
+
+     </ul>        
+{% endblock %}

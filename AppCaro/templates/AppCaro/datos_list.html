@@ -1,0 +1,31 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+<h1> Datos Personales <h1>
+    <ul>
+
+        {% for datos in object_list %}
+
+            <li>
+                <p>
+                    Nombre y Apellido: {{datos.nombre_y_apellido}}
+                    Edad: {{datos.edad}}
+                    DNI: {{datos.dni}}
+                    Domicilio: {{datos.domicilio}}
+                </p>
+                <p>
+                    <a href = "{% url 'Detalle' datos.id %}"> Ver</a>
+                    <a href = "{% url 'Editar' datos.id %}"> Editar</a>
+                    <a href = "{% url 'Borrar' datos.id %}"> Borrar</a>
+
+                </p>
+            </li>
+        {% endfor %}
+
+     <a href = "{% url 'Nuevo' %}"> Crear nueva información para Datos Personales</a>
+
+     </ul>        
+{% endblock %}

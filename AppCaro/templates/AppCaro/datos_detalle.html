@@ -1,0 +1,20 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+<h1> Detalle de los datos personales <h1>
+    <ul>
+        
+        Nombre y Apellido: {{datos.nombre_y_apellido}}
+        Edad: {{datos.edad}}
+        DNI: {{datos.dni}}
+        Domicilio: {{datos.domicilio}}
+                
+            <p>
+                <a href= "{%url 'Lista' %}"> Regresar </a>
+
+            </p>
+     </ul>        
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+<h1> Experiencias Laborales <h1>
+    <ul>
+                <p>
+                    Cargo: {{experiencia.nombre_experiencia}}
+                    Empresa: {{experiencia.nombre_empresa}}
+                    Duración: {{experiencia.duracion}}
+                    Trabajo Actual: {{experiencia.trabajo_actual}}
+                    Descripción: {{experiencia.descripcion}}
+                </p>
+            <p>
+                <a href= "{%url 'Lista' %}"> Regresar </a>
+
+            </p>
+     </ul>        
+{% endblock %}

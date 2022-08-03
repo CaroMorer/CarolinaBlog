@@ -1,0 +1,31 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+<h1> Experiencias Laborales <h1>
+    <ul>
+
+        {% for experiencia in object_list %}
+
+            <li>
+                <p>
+                    Cargo: {{experiencia.nombre_experiencia}}
+                    Empresa: {{experiencia.nombre_empresa}}
+                    Duración: {{experiencia.duracion}}
+                    Trabajo Actual: {{experiencia.trabajo_actual}}
+                    Descripción: {{experiencia.descripcion}}
+                </p>
+                <p>
+                    <a href = "{% url 'Detalle' experiencia.id %}"> Ver</a>
+                    <a href = "{% url 'Editar' experiencia.id %}"> Editar</a>
+                    <a href = "{% url 'Borrar' experiencia.id %}"> Borrar</a>
+                </p>
+            </li>
+        {% endfor %}
+
+        <a href = "{% url 'Nuevo' %}"> Crear nueva Experiencia</a>
+
+     </ul>        
+{% endblock %}

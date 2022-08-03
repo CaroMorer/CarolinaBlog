@@ -34,8 +34,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'experiencia' %}"> Experiencia</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'habilidades' %}"> Habilidades</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'idiomas' %}"> Idiomas</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'profesion' %}"> Profesion</a></li>                                                                                            
-                       
+                        
 
                     </ul>
                 </div>
@@ -61,9 +60,14 @@
 
         {%block contenido_que_cambia %}
 
+
+
+
+        
+
         {% endblock %}
 
-        <!-- Portfolio Section-->
+        {% comment %} <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
@@ -228,7 +232,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> {% endcomment %}
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
