@@ -1,0 +1,24 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+<div>
+    <h1> Información de contacto </h1>
+    <h2> Carga de Datos de Contacto</h2>
+</div>
+
+    {% if mi_formulario.errors %}
+    <p style=" color: red;"> Datos mal ingresados</p>
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %}
+
+        <table>
+            {{mi_formulario.as_table}}
+        </table>
+
+        <input type="submit", value="Registrar">
+
+    </form>
+{% endblock %}

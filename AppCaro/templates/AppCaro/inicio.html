@@ -1,0 +1,32 @@
+{% extends "AppCaro/padre.html" %}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+    <div style = "background-color: coral;">
+        <h1 class="page-section-heading text-center text-uppercase text-secondary mb-0"> Bienvenido a mi PortFolio </h1>
+        <h2 class="page-section-heading text-center text-secondary mb-0"> Puedes indagar directamente mi experiencia: </h2>
+        <h3 style ="color: black;"> Ingresa una palabra clave: </h3>
+
+    <form action = '/AppCaro/buscar_experiencia/' method= 'GET'>
+        <input type = 'text' name = 'nombre_experiencia', 'nombre_empresa', 'duracion', 'trabajo_actual', 'descripcion' >
+        <input type = 'submit' value = 'Buscar'> 
+    </form>
+    
+    </div>    
+ 
+        
+    {% if nombre_experiencia %}
+
+        <p> Experiencias halladas con la palabra : {{nombre_experiencia}}</p>
+        <ul>    
+        {% for exp in nombre_experiencia %}
+            <li> {{experiencia.nombre_empresa}} </li>
+        {% endfor %}
+        </ul>
+
+    {% else %}
+        <p> No hay experiencias con esa descripcion</p>
+    {% endif %}
+
+{% endblock %}
