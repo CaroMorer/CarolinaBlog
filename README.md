@@ -3,4 +3,5 @@ Este blog permite visualizar en la barra de inicio 5 botones que llevan a distin
 En el inicio aparece la posibilidad de loguearse y en caso de no tener un usuario creado, un botón permite acceder al formulario de registro para crear usuario, una vez creado se puede acceder. 
 Así mismo el botón de registro permite acceder al inicio de sesión si es que ya se cuenta con una cuenta.
 En cada opción de la barra de navegación se puede visualizar y cargar información nueva con distintos formularios que están conectados a la base de datos y que por ello permiten realizar modificaciones del tipo CRUD en la misma.
-En el inicio se encuentra un formulario de busqueda que va a buscar en la base de datos de Experiencia la información que se ingrese para buscar.
+En el inicio se encuentra un formulario de busqueda que va a buscar en la base de datos de Experiencia la información que se ingrese para buscar. Aquí el vídeo para resumir!
+https://drive.google.com/file/d/1uM6NO9kG4zxTsCLPfIoKp4ISuEdUGjqM/view?usp=sharing
